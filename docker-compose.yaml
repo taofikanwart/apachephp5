@@ -1,0 +1,14 @@
+services:
+  apache:
+    image: porchn/php5.6-apache
+    container_name: php56-apache
+    ports:
+      - "8081:80"   # akses di http://localhost:8081
+      - "8443:443"  # kalau butuh https
+    volumes:
+      - ./html:/var/www/html
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+      - ./logs/apache:/var/log/apache2
+    environment:
+      - TZ=Asia/Jakarta
+    restart: always
